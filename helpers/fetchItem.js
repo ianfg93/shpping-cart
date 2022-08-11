@@ -1,7 +1,12 @@
-const fetchItem = () => {
-  fetch('https://api.mercadolibre.com/items/MLB1615760527')
-  .then((data) => data.json())
-  .catch((error) => error);
+const fetchItem = async (itemID) => {
+  const endPoint = `https://api.mercadolibre.com/items/${itemID}`;
+  try {
+    const resultado = await fetch(endPoint);
+    const data = await resultado.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
 };
 
 if (typeof module !== 'undefined') {

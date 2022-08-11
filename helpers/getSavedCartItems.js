@@ -1,5 +1,5 @@
 const getSavedCartItems = () => {
-  // seu código aqui
+  // listaProdutos.innerHTML = ('savedList');
 };
 
 if (typeof module !== 'undefined') {
