@@ -23,6 +23,7 @@ const salvar = () => {
 
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
+// REMOVENDO ITENS
 const cartItemClickListener = (event) => {
   event.target.remove();
   salvar();
