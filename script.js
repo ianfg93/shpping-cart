@@ -99,12 +99,8 @@ function iniciando() {
   }, 2000);
 }
 
-const inicil = async () => {
-  iniciando();
-};
-
-window.onload = async () => { 
+window.onload = () => { 
   addProdutos();
   salvandoLocalStorage();
-  await inicil();
+  iniciando();
 };
