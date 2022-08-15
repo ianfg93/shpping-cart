@@ -1,7 +1,8 @@
 const cartItems = document.querySelector('.cart__items');
 const addElementos = document.querySelector('.items');
-// const valorTotal = document.querySelector('.total-price');
+const valorTotal = document.querySelector('.total-price');
 const btnLimpar = document.querySelector('.empty-cart');
+const sessao = document.querySelector('.container');
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -36,6 +37,7 @@ const cartItemClickListener = (event) => {
   event.target.remove();
   salvar();
   salvandoLocalStorage();
+  saveCartItems(cartItems.innerHTML);
 };
 
 const createCartItemElement = ({ id: sku, title: name, price: salePrice }) => {
@@ -81,11 +83,28 @@ addElementos.appendChild(produto);
 });
 };
 
+// LIMPANDO CARRINHO
 btnLimpar.addEventListener('click', () => {
   cartItems.innerHTML = '';
 });
 
-window.onload = () => { 
+// INICIANDO PAGINA COM 'CARREGANDO'
+function iniciando() {
+  const msgInicil = document.createElement('section');
+  msgInicil.className = 'loading';
+  msgInicil.innerText = 'carregando...';
+  sessao.appendChild(msgInicil);
+  setTimeout(() => {
+  sessao.removeChild(msgInicil);
+  }, 2000);
+}
+
+const inicil = async () => {
+  iniciando();
+};
+
+window.onload = async () => { 
   addProdutos();
   salvandoLocalStorage();
+  await inicil();
 };
