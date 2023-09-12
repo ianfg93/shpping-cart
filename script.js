@@ -1,6 +1,6 @@
 const cartItems = document.querySelector('.cart__items');
 const addElementos = document.querySelector('.items');
-const valorTotal = document.querySelector('.total-price');
+// const valorTotal = document.querySelector('.total-price');
 const btnLimpar = document.querySelector('.empty-cart');
 const sessao = document.querySelector('.container');
 
